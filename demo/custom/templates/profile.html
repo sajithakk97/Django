@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+</head>
+<body>
+    <h4>{{details.username}}</h4>
+    <h4>{{details.fisrt_name}}</h4>
+    <h4>{{details.last_name}}</h4>
+    <a href="{% url 'logout' %}"><button >Logout</button></a>
+    <a href="{% url 'edit' %}"><button >Edit</button></a>
+    <a href="{% url 'mark' %}"><button >Marks</button></a>
+</body>
+</html>

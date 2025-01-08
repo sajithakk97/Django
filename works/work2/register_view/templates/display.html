@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+{% load static%}
+{% block content %}
+<body>
+    <table>
+        <tr>
+            <th>Image</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+            
+        </tr>
+        {% for i in display_data %}
+        <tr>
+            {% if i.image %}
+            <td>
+                <img src="{{i.image.url}}" style="border-radius: 50% ;height: 100px;width: 100px;">
+            </td>
+            {% else %}
+            <td>there is no image</td>
+            {% endif %}
+            <td>{{ i.firstname }}</td>
+            <td>{{i.lastname}}</td>
+            <td>{{i.email}}</td>
+            
+           
+        </tr>
+        {% endfor %}
+    </table>
+    <button ><a href="{% url 'register' %}">Back</a></button>
+
+</body>
+{% endblock %}

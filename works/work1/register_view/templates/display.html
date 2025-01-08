@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th><b>FIRST NAME </b></th>
+            <th><b>LAST NAME</b></th>
+            <th><b>EMAIL</b></th>
+            <th><b>PASSWORD</b></th>
+            <th><b>DATE OF BIRTH</b></th>
+        </tr>
+        {% for i in details %}
+        <tr >
+            <td>{{i.First_name}}</td>
+            <td>{{i.Last_name}}</td>
+            <td>{{i.Email}}</td>
+            <td>{{i.Password}}</td>
+            <td>{{i.Date_of_birth}}</td>
+            <td><a href="{% url 'edit' ID=i.id %}">Edit</a></td>
+            <td><a href="{% url 'delete' ID=i.id %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <button ><a href="{% url 'index' %}">BACK</a></button>
+</body>
+</html>

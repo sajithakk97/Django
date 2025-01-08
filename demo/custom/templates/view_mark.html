@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scores</title>
+</head>
+<body>
+    <table>
+    <tr>
+        <th>Maths</th>
+        <th>English</th>
+        <th>Science</th>
+    </tr>
+    {% for i in marks %}
+    <tr>
+        <td>{{i.maths}}</td>
+        <td>{{i.english}}</td>
+        <td>{{i.science}}</td>
+       
+    </tr>
+    {% endfor %}
+</table>
+    
+</body>
+</html>

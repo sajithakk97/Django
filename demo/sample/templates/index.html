@@ -1,0 +1,22 @@
+{% extends 'index2.html' %}
+{% load static %}
+{% block content %}
+<body >
+    <div style="height: 500px;">
+        <form action="{% url 'register1' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" placeholder="FIrst name" name="first name">
+            <input type="text" placeholder="Last name" name="last name">
+            <input type="email" placeholder="Enter email" name="email">
+            <input type="password" placeholder="password" name="password">
+            <input type="file" name="img">
+            <button type="submit">Register</button>
+    
+        </form>
+    </div>
+    {% if message %}
+    <h2>{{message}}</h2>
+    {% endif %}
+    
+</body>
+{% endblock %}
