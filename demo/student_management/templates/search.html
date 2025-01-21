@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>students</title>
+</head>
+<body>
+    <a href="{% url 'add' %}"><button>ADD STUDENT</button></a><br><br>
+    <div style="display: flex; align-content: center; justify-content: center; padding: 20px;">
+        <form method="post" action="{% url 'search' %}">
+            {% csrf_token %}
+            <input type="text" placeholder="search here" name="search">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <a href="{% url 'profile' %}"><button>Profile</button></a><br><br>
+    <table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Corse</th>
+        <th>Teacher_name</th>
+    </tr>
+    {% for i in details %}
+    <tr>
+        <td>{{i.name}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.course}}</td>
+        <td>{{i.teacher_id}}</td>
+        <td><a href="{% url 'edit' id=i.id %}">edit</a></td>
+        <td><a href="{% url 'delete' id=i.id %}">delete</a></td>
+
+    </tr>
+    {% endfor %}
+    
+</table>
+
+    
+</body>
+</html>

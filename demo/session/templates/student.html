@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th></th>
+            <th>username</th>
+            <th>email</th>
+            <th>first_name</th>
+            <th>last_name</th>
+            <th>course</th>
+            <th>address</th>
+            <th>status</th>
+            
+        </tr>
+        {% for i in data%}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{i.username}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.first_name}}</td>
+            <td>{{i.last_name}}</td>
+            <td>{{i.course}}</td>
+            <td>{{i.address}}</td>
+            <td>
+                <form action="{% url 'set_status' id=i.id %}" method="post">
+                    {% csrf_token %}
+                {% if i.status == 'pending' %}
+                    <input type="submit" name="status1" value="Accept">
+                    <input type="submit" name="status1" value="Reject">
+                
+                {% elif i.status == 'accepted' %}
+
+                <input type="submit" name="status1" value="Reject">
+                {% else %}
+                <input type="submit" name="status1" value="Accept">
+                {% endif %}
+            </form>
+                
+            </td>
+            
+        </tr>
+        {% endfor %}
+            </table>
+</body>
+</html>

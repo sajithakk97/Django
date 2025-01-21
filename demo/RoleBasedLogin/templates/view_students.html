@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>students</title>
+</head>
+<body>
+    <table>
+    <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>first name</th>
+        <th>Last name</th>
+        <th>Course</th>
+        <th>Gender</th>
+    </tr>
+    {% for i in students %}
+    <tr>
+        <td>{{i.student_type_id.username}}</td>
+        <td>{{i.student_type_id.email}}</td>
+        <td>{{i.first_name}}</td>
+        <td>{{i.last_name}}</td>
+     
+        <td><a href="">edit</a></td>
+        <td><a href="">delete</a></td>
+        <td><a href="{% url 'add_mark' id=i.id %}"> marks</a></td>
+
+    </tr>
+    {% endfor %}
+    
+</table>
+
+    
+</body>
+</html>

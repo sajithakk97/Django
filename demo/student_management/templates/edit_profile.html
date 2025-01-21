@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{% url 'edit_profile' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="firstname" placeholder="First name" value={{details.first_name}}>
+        <input type="text" name="lastname" placeholder="Last name" value={{details.last_name}}>
+        <input type="email" name="email" placeholder="Email" value={{details.email}}>
+        <input type="password" name="password" placeholder="Password">
+        <input type="text" name="username" placeholder="User name" value={{details.username}}>
+        <input type="number" name="phone" placeholder="Phone" value={{details.phone}}>
+        <input type="text" name="department" placeholder="Department" value={{details.department}}>
+        <button type="submit">Edit</button>
+    </form>
+</body>
+</html>

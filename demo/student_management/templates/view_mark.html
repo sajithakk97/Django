@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scores</title>
+</head>
+<body>
+    <table>
+
+    <tr>
+        <th>Terms</th>
+        <th>subject1</th>
+        <th>subject2</th>
+        <th>subject3</th>
+        <th>total</th>
+        
+    </tr>
+    {% for i in marks %}
+    <tr>
+        <td>{{i.term}}</td>
+        <td>{{i.subject1}}</td>
+        <td>{{i.subject2}}</td>
+        <td>{{i.subject3}}</td>
+        <td>{{i.total}}</td>
+        
+       
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'add_mark' id=data.id %}">add mark</a>
+    
+</body>
+</html>

@@ -17,6 +17,8 @@
         <td>{{i.maths}}</td>
         <td>{{i.english}}</td>
         <td>{{i.science}}</td>
+        <td><a href="{% url 'delete' id=i.id %}">delete</a></td>
+        <td><a href="{% url 'edit_score' id=i.id %}">edit</a></td>
        
     </tr>
     {% endfor %}

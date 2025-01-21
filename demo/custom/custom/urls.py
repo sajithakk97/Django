@@ -26,4 +26,11 @@ urlpatterns = [
     path('edit',views.profile_edit,name='edit'),
     path('mark',views.marks,name='mark'),
     path('view_mark',views.view_mark,name='view_mark'),
+    path('delete/<int:id>',views.delete,name='delete'),
+    path('edit_score/<int:id>',views.score_edit,name='edit_score'),
+    path('password_reset',views.password_reset_request,name='password_reset'),
+    path('verify_otp',views.verify_otp,name='verify_otp'),
+    path('set_new_password',views.set_new_password,name='set_new_password'),
+    
+    
 ]
