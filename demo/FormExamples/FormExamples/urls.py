@@ -21,4 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('index',views.index,name='index'),
     path('model_form',views.model_form,name='model_form'),
+    path('register',views.register,name='register'),
+    
 ]
