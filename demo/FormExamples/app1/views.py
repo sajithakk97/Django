@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from .forms import form1,EmployeeForm
+from .forms import form1,EmployeeForm,RegistrationForm
 from django.http import HttpResponse 
 from .models import student
+from django.contrib.auth.models import User
 
 # Create your views here.
 def index(request):
@@ -28,3 +29,17 @@ def model_form(request):
     else:
         form=EmployeeForm()
         return render(request,'model_form.html',{'form':form})
+    
+def register(request):
+    if request.method=='POST':
+        form=RegistrationForm(request.POST)
+        if form.is_valid():
+            username=form.cleaned_data['username']
+            email=form.cleaned_data['email']
+            password=form.cleaned_data['password']
+            user=User.objects.create(username=username,email=email,password=password)
+            user.save()
+            return HttpResponse("registered")
+    else:
+        form=RegistrationForm()
+    return render(request,'register.html',{'form':form}) 
